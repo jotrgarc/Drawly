@@ -1,0 +1,130 @@
+{
+  "epics": [
+    {
+      "id": "E1",
+      "title": "Image Processing",
+      "goal": "Allow users to upload images and generate Loomis-style breakdowns.",
+      "stories": [
+        {
+          "id": "E1-S1",
+          "story": "As a user, I can upload a photo so the system can process it.",
+          "tasks": [
+            "Backend: Set up FastAPI with upload endpoint",
+            "Storage: Save images locally (later S3/Firebase)"
+          ]
+        },
+        {
+          "id": "E1-S2",
+          "story": "As a system, I can detect forms (circle, box, line) from the image.",
+          "tasks": [
+            "AI: Implement OpenCV edge detection + contour simplification",
+            "Return dummy JSON in Tutorial format"
+          ]
+        },
+        {
+          "id": "E1-S3",
+          "story": "As a user, I get feedback if the image cannot be processed.",
+          "tasks": [
+            "Add error handling for invalid image inputs",
+            "Show error message in frontend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "title": "Tutorial Generation",
+      "goal": "Convert processed image into step-by-step Loomis tutorials.",
+      "stories": [
+        {
+          "id": "E2-S1",
+          "story": "As a user, I receive a sequence of steps to build my drawing.",
+          "tasks": [
+            "Define tutorial step logic (forms → construction → refine)",
+            "Implement JSON output for steps/shapes"
+          ]
+        },
+        {
+          "id": "E2-S2",
+          "story": "As a user, I can see shapes added step-by-step.",
+          "tasks": [
+            "Generate overlay images for each step"
+          ]
+        },
+        {
+          "id": "E2-S3",
+          "story": "As a user, I can view a simple caption alongside each step.",
+          "tasks": [
+            "Add captions for teaching guidance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "title": "Frontend Experience",
+      "goal": "Provide a clean and simple UI for artists.",
+      "stories": [
+        {
+          "id": "E3-S1",
+          "story": "As a user, I can drag & drop a photo to upload.",
+          "tasks": [
+            "Set up Next.js frontend",
+            "Build upload form with drag & drop"
+          ]
+        },
+        {
+          "id": "E3-S2",
+          "story": "As a user, I can view generated tutorial steps.",
+          "tasks": [
+            "Display tutorial JSON in UI (debug mode)",
+            "Create step viewer with prev/next navigation"
+          ]
+        },
+        {
+          "id": "E3-S3",
+          "story": "As a user, I can switch between light/dark mode.",
+          "tasks": [
+            "Add minimal styling (artist-friendly)",
+            "Implement theme toggle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "title": "Export & Sharing",
+      "goal": "Let users save and share tutorials.",
+      "stories": [
+        {
+          "id": "E4-S1",
+          "story": "As a user, I can export my tutorial as PNG/PDF.",
+          "tasks": [
+            "Backend: Implement export service (PDF/PNG)",
+            "UI: Add 'Export' button"
+          ]
+        },
+        {
+          "id": "E4-S2",
+          "story": "As a user, I can share my tutorial with others.",
+          "tasks": [
+            "Save exported files in storage with links",
+            "Expose shareable link"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E5",
+      "title": "Future Enhancements",
+      "goal": "Expand Drawly beyond MVP.",
+      "ideas": [
+        "Skill levels (beginner → advanced)",
+        "User accounts + history of past tutorials",
+        "Interactive sketch-along canvas",
+        "Community gallery to share tutorials",
+        "Mobile app version (iOS/Android)"
+      ]
+    }
+  ]
+}
